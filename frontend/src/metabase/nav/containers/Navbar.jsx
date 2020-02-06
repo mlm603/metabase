@@ -342,6 +342,21 @@ export default class Navbar extends Component {
           {hasDataAccess && (
             <Link
               mr={[1, 2]}
+              to="collection/2"
+              p={1}
+              className="flex align-center rounded transition-background"
+              data-metabase-event={`NavBar; IA Collections`}
+              hover={{
+                backgroundColor: darken(color("brand")),
+              }}
+            >
+              <Icon name="dashboard" size={14} />
+              <h4 className="hide md-show ml1 text-nowrap">{t`IA Collections`}</h4>
+            </Link>
+          )}
+          {hasDataAccess && (
+            <Link
+              mr={[1, 2]}
               to={Urls.newQuestionFlow()}
               p={1}
               hover={{
@@ -354,20 +369,35 @@ export default class Navbar extends Component {
               <h4 className="hide sm-show ml1 text-nowrap">{t`Ask a question`}</h4>
             </Link>
           )}
+
           {hasDataAccess && (
             <Link
               mr={[1, 2]}
-              to="browse"
+              to={this.props.plainNativeQuery.question().getUrl()}
               p={1}
-              className="flex align-center rounded transition-background"
-              data-metabase-event={`NavBar;Data Browse`}
               hover={{
                 backgroundColor: darken(color("brand")),
               }}
+              className="flex align-center rounded transition-background"
+              data-metabase-event={`NavBar;SQL Question`}
             >
-              <Icon name="table_spaced" size={14} />
-              <h4 className="hide md-show ml1 text-nowrap">{t`Browse Data`}</h4>
+              <Icon name="sql" size={18} />
+              <h4 className="hide sm-show ml1 text-nowrap">{t`SQL Question`}</h4>
             </Link>
+          )}
+          {hasNativeWrite && (
+            <IconWrapper
+              className="relative hide sm-show mr1 overflow-hidden"
+              hover={NavHover}
+            >
+              <Link
+                to="browse"
+                className="flex align-center"
+                data-metabase-event={`NavBar;Browse Data`}
+              >
+                <Icon size={18} p={"11px"} name="reference" tooltip={t`Browse Data`} />
+              </Link>
+            </IconWrapper>
           )}
           <EntityMenu
             tooltip={t`Create`}
@@ -389,20 +419,6 @@ export default class Navbar extends Component {
               },
             ]}
           />
-          {hasNativeWrite && (
-            <IconWrapper
-              className="relative hide sm-show mr1 overflow-hidden"
-              hover={NavHover}
-            >
-              <Link
-                to={this.props.plainNativeQuery.question().getUrl()}
-                className="flex align-center"
-                data-metabase-event={`NavBar;SQL`}
-              >
-                <Icon size={18} p={"11px"} name="sql" tooltip={t`Write SQL`} />
-              </Link>
-            </IconWrapper>
-          )}
           <ProfileLink {...this.props} />
         </Flex>
         {this.renderModal()}

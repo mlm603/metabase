@@ -147,7 +147,7 @@ export const getCollectionType = (collectionId: string, state: {}) =>
 
 export const ROOT_COLLECTION = {
   id: "root",
-  name: t`Our analytics`,
+  name: t`Our Analytics`,
   location: "",
   path: [],
 };
