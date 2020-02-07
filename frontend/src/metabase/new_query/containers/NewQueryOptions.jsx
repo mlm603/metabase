@@ -70,8 +70,8 @@ export class NewQueryOptions extends Component {
     {
       /* Determine how many items will be shown based on permissions etc so we can make sure the layout adapts */
     }
-    const NUM_ITEMS = (hasDataAccess ? 2 : 0) + (hasNativeWrite ? 1 : 0);
-    const ITEM_WIDTHS = [1, 1 / 2, 1 / NUM_ITEMS];
+
+    const ITEM_WIDTHS = [1, 1 / 2];
 
     return (
       <Box my="auto" mx={PAGE_PADDING}>
@@ -81,7 +81,7 @@ export class NewQueryOptions extends Component {
               <NewQueryOption
                 image="app/img/simple_mode_illustration"
                 title={t`Simple question`}
-                description={t`Pick some data, view it, and easily filter, summarize, and visualize it.`}
+                description={t`Speadsheet-like interface: start from the whole dataset and then keep only what you need for your viz using filters and aggregations`}
                 width={180}
                 to={Urls.newQuestion()}
                 data-metabase-event={`New Question; Simple Question Start`}
@@ -93,22 +93,10 @@ export class NewQueryOptions extends Component {
               <NewQueryOption
                 image="app/img/notebook_mode_illustration"
                 title={t`Custom question`}
-                description={t`Use the advanced notebook editor to join data, create custom columns, do math, and more.`}
+                description={t`Explore from scratch by selecting only the datasets, filters, columns, and aggregations you need`}
                 width={180}
                 to={Urls.newQuestion({ mode: "notebook" })}
                 data-metabase-event={`New Question; Custom Question Start`}
-              />
-            </GridItem>
-          )}
-          {hasNativeWrite && (
-            <GridItem w={ITEM_WIDTHS}>
-              <NewQueryOption
-                image="app/img/sql_illustration"
-                title={t`Native query`}
-                description={t`For more complicated questions, you can write your own SQL or native query.`}
-                to={Urls.newQuestion({ type: "native" })}
-                width={180}
-                data-metabase-event={`New Question; Native Query Start`}
               />
             </GridItem>
           )}
