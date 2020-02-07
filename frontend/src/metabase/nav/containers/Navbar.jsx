@@ -350,7 +350,7 @@ export default class Navbar extends Component {
                 backgroundColor: darken(color("brand")),
               }}
             >
-              <Icon name="dashboard" size={14} />
+              <Icon name="collection" size={14} />
               <h4 className="hide md-show ml1 text-nowrap">{t`IA Collections`}</h4>
             </Link>
           )}
