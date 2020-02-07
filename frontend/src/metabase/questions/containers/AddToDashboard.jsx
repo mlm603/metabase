@@ -23,7 +23,7 @@ export default class AddToDashboard extends Component {
         >
           <Flex align="center" className="text-brand" py={2}>
             <Icon name="add" mx={1} bordered />
-            <h4>{t`Create a new question`}</h4>
+            <h4>{t`The question doesn't already exist? Create a new one.`}</h4>
           </Flex>
         </Link>
       </ModalContent>
