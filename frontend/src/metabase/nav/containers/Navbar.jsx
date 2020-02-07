@@ -369,36 +369,6 @@ export default class Navbar extends Component {
               <h4 className="hide sm-show ml1 text-nowrap">{t`Ask a question`}</h4>
             </Link>
           )}
-
-          {hasDataAccess && (
-            <Link
-              mr={[1, 2]}
-              to={this.props.plainNativeQuery.question().getUrl()}
-              p={1}
-              hover={{
-                backgroundColor: darken(color("brand")),
-              }}
-              className="flex align-center rounded transition-background"
-              data-metabase-event={`NavBar;SQL Question`}
-            >
-              <Icon name="sql" size={18} />
-              <h4 className="hide sm-show ml1 text-nowrap">{t`SQL Question`}</h4>
-            </Link>
-          )}
-          {hasNativeWrite && (
-            <IconWrapper
-              className="relative hide sm-show mr1 overflow-hidden"
-              hover={NavHover}
-            >
-              <Link
-                to="browse"
-                className="flex align-center"
-                data-metabase-event={`NavBar;Browse Data`}
-              >
-                <Icon size={18} p={"11px"} name="reference" tooltip={t`Browse Data`} />
-              </Link>
-            </IconWrapper>
-          )}
           <EntityMenu
             tooltip={t`Create`}
             className="hide sm-show mr1"
@@ -419,6 +389,34 @@ export default class Navbar extends Component {
               },
             ]}
           />
+          {hasNativeWrite && (
+            <IconWrapper
+              className="relative hide sm-show mr1 overflow-hidden"
+              hover={NavHover}
+            >
+              <Link
+                to="browse"
+                classNamebrowse="flex align-center"
+                data-metabase-event={`NavBar;Browse Data`}
+              >
+                <Icon size={21} p={"11px"} name="database" tooltip={t`Browse Data`} />
+              </Link>
+            </IconWrapper>
+          )}
+          {hasNativeWrite && (
+            <IconWrapper
+              className="relative hide sm-show mr1 overflow-hidden"
+              hover={NavHover}
+            >
+              <Link
+                to={this.props.plainNativeQuery.question().getUrl()}
+                classNamebrowse="flex align-center"
+                data-metabase-event={`NavBar;SQL`}
+              >
+                <Icon size={21} p={"11px"} name="sql" tooltip={t`Run SQL`} />
+              </Link>
+            </IconWrapper>
+          )}
           <ProfileLink {...this.props} />
         </Flex>
         {this.renderModal()}
