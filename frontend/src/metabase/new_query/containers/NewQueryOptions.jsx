@@ -81,7 +81,7 @@ export class NewQueryOptions extends Component {
               <NewQueryOption
                 image="app/img/simple_mode_illustration"
                 title={t`Simple question`}
-                description={t`An Excel-like interface for creating charts. Add some simple aggregations and filters.`}
+                description={t`Speadsheet-like interface: start from the whole dataset and then keep only what you need for your viz using filters and aggregations`}
                 width={180}
                 to={Urls.newQuestion()}
                 data-metabase-event={`New Question; Simple Question Start`}
@@ -93,7 +93,7 @@ export class NewQueryOptions extends Component {
               <NewQueryOption
                 image="app/img/notebook_mode_illustration"
                 title={t`Custom question`}
-                description={t`A notebook-like interface with options for custom aggregations and joins.`}
+                description={t`Explore from scratch by selecting only the datasets, filters, columns, and aggregations you need`}
                 width={180}
                 to={Urls.newQuestion({ mode: "notebook" })}
                 data-metabase-event={`New Question; Custom Question Start`}
