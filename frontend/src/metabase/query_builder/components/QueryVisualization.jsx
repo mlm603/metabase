@@ -146,7 +146,8 @@ export default class QueryVisualization extends Component {
 
 export const VisualizationEmptyState = ({ className }) => (
   <div className={cx(className, "flex flex-column layout-centered text-light")}>
-    <h3>{t`Here's where your results will appear`}</h3>
+    <h3>{t`The results of your SQL query will appear here.`}</h3>
+    <h5>{t`The Internal Analytics Team won't be able to review or debug your SQL query.`}</h5>
   </div>
 );
 
