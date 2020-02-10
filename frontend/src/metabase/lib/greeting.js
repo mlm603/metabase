@@ -6,6 +6,7 @@ const greetingPrefixes = [
   t`Howdy`,
   t`Greetings`,
   t`Good to see you`,
+  t`Welcome to Metabase`,
 ];
 
 const subheadPrefixes = [
