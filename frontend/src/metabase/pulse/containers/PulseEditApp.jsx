@@ -13,6 +13,7 @@ import User from "metabase/entities/users";
 import { push, goBack } from "react-router-redux";
 
 import {
+  getDashboardId,
   getPulseId,
   getEditingPulse,
   getPulseCardPreviews,
@@ -30,6 +31,7 @@ import {
 } from "../actions";
 
 const mapStateToProps = (state, props) => ({
+  dashboardId: getDashboardId(state, props),
   pulseId: getPulseId(state, props),
   pulse: getEditingPulse(state, props),
   cardPreviews: getPulseCardPreviews(state, props),
