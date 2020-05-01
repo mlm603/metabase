@@ -79,10 +79,6 @@ export function modelToUrl(model, modelId) {
   }
 }
 
-export function newDashboardPulse(dashboardId) {
-  return `/pulse/create/dashboard/${dashboardId}`;
-}
-
 export function pulse(pulseId) {
   return `/pulse/${pulseId}`;
 }

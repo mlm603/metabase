@@ -331,9 +331,6 @@ export const getRoutes = store => (
         <Route path=":pulseId">
           <IndexRoute component={PulseEditApp} />
         </Route>
-        <Route path="create/dashboard/:dashboardId">
-          <IndexRoute component={PulseEditApp} />
-        </Route>
       </Route>
 
       {/* USER */}

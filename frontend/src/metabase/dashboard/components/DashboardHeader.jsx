@@ -303,25 +303,6 @@ export default class DashboardHeader extends Component {
       );
     }
 
-    if (!isFullscreen && !isEditing ) {
-      buttons.push(
-        <Tooltip key="new-pulse" tooltip={t`Create pulse`}>
-          <Link
-            to={Urls.newDashboardPulse(this.props.dashboard.id)}
-          >
-            <a
-              data-metabase-event="Dashboard;New Pulse Click;"
-              key="new_pulse"
-              title={t`Create pulse`}
-              className="text-brand-hover cursor-pointer"
-            >
-              <Icon name="pulse" size={16} />
-            </a>
-          </Link>
-        </Tooltip>,
-      );
-    }
-
     if (!isFullscreen && !isEditing && canEdit) {
       buttons.push(
         <Tooltip key="edit-dashboard" tooltip={t`Edit dashboard`}>
