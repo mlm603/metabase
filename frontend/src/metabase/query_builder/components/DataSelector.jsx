@@ -723,16 +723,32 @@ export const DatabaseSchemaPicker = ({
   onChangeDatabase,
   hasAdjacentStep,
 }) => {
+
+  // create a blacklist to hide selected connections
+  const database_blacklist = ["test local"]
+
   if (databases.length === 0) {
     return <DataSelectorLoading />;
   }
 
-  const sections = databases.map(database => ({
-    name: database.name,
-    items: database.schemas.length > 1 ? database.schemas : [],
-    className: database.is_saved_questions ? "bg-light" : null,
-    icon: database.is_saved_questions ? "all" : "database",
-  }));
+  let sections = databases.map(database => {
+    // if connection is blacklisted, don't return an object
+    if (!database_blacklist.includes(database.name)) {
+      return ({
+        name: database.name,
+        items: database.schemas.length > 1 ? database.schemas : [],
+        className: database.is_saved_questions ? "bg-light" : null,
+        icon: database.is_saved_questions ? "all" : "database",
+      })
+    } else {
+      return null
+    }
+  });
+
+  // filter out blacklisted objects
+  sections = sections.filter(el => {
+    return el != null;
+  });
 
   let openSection =
     selectedSchema &&
