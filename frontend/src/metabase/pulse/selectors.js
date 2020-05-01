@@ -7,11 +7,8 @@ export const getEditingPulse = state => {
   const dashcards = {...dashboard.dashcards};
   const cards_arr = [];
 
-  const dashcards_keys = Object.keys(dashcards);
-
-  for (let i=0; i < dashcards_keys.length; i++){
-    const dashcard_key = dashcards_keys[i]
-    cards_arr.push({ id: dashcards[dashcard_key].card_id, include_csv: false, include_xls: false })
+  for (let i=1; i<Object.keys(dashcards).length + 1; i++){
+    cards_arr.push({ id: dashcards[i].card_id, include_csv: false, include_xls: false })
   }
 
   const obj_to_return = (dashboard.dashboardId ?
