@@ -745,7 +745,7 @@ export const DatabaseSchemaPicker = ({
     }
   });
 
-  // filter out blacklisted objects
+  // filter out blacklisted connections
   sections = sections.filter(el => {
     return el != null;
   });
